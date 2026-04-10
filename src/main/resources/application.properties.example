@@ -1,0 +1,8 @@
+# Arquivo de exemplo - Preencha com seus dados locais
+spring.datasource.url=jdbc:mysql://localhost:3306/painel_admin
+spring.datasource.username=seu_usuario_aqui
+spring.datasource.password=sua_senha_aqui
+
+# Configurações do Hibernate
+spring.jpa.hibernate.ddl-auto=update
+spring.show-sql=true

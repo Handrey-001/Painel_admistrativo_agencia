@@ -1,0 +1,38 @@
+<div th:fragment="conteudo">
+
+    <h2>💰 Financeiro</h2>
+
+    <!-- FORM -->
+    <div class="card">
+        <form th:action="@{/financeiro}" method="post">
+            <input type="text" name="descricao" placeholder="Descrição" required>
+
+            <input type="number" step="0.01" name="valor" placeholder="Valor" required>
+
+            <select name="tipo">
+              <option value="ENTRADA">Entrada</option>
+              <option value="SAIDA">Saída</option>
+            </select>
+
+            <button type="submit">Salvar</button>
+        </form>
+    </div>
+
+    <!-- LISTA -->
+    <div class="card">
+        <div th:each="f : ${lista}" class="cliente">
+
+            <div>
+                <strong th:text="${f.descricao}"></strong>
+                <p th:text="${f.tipo}"></p>
+            </div>
+
+            <div>
+                <span th:text="'R$ ' + ${f.valor}"></span>
+                <a th:href="@{'/financeiro/deletar/' + ${f.id}}">Excluir</a>
+            </div>
+
+        </div>
+    </div>
+
+</div>

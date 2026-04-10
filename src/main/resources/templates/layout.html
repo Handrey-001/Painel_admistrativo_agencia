@@ -1,0 +1,139 @@
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Painel</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins'; }
+
+        body {
+            display: flex;
+            background: #0f172a;
+            color: white;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            width: 220px;
+            height: 100vh;
+            background: #020617;
+            padding: 20px;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 20px;
+        }
+
+        .sidebar a {
+            display: block;
+            color: #cbd5f5;
+            text-decoration: none;
+            margin: 10px 0;
+        }
+
+        .sidebar a:hover {
+            color: white;
+        }
+
+        /* MAIN */
+        .main {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .topbar {
+            margin-bottom: 20px;
+        }
+
+        .card {
+          background: #1e293b;
+          padding: 20px;
+          border-radius: 12px;
+         margin-bottom: 20px;
+        }
+
+        form {
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+        }
+
+        input {
+          background: #334155;
+          border: 1px solid #475569;
+          padding: 10px;
+          border-radius: 6px;
+          color: white;
+          flex: 1;
+          min-width: 150px;
+        }   
+        button {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+           font-weight: bold;
+        } 
+        .cliente {
+           background: #334155;
+           padding: 15px;
+           border-radius: 8px;
+           margin-top: 10px;
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+        }
+
+        .info .email {
+           display: block;
+           color: #94a3b8;
+           font-size: 0.9em;
+        }
+
+        .acoes a {
+          text-decoration: none;
+          font-weight: bold;
+          margin-left: 10px;
+          font-size: 0.9em;
+        }
+
+       .edit, .edit:visited { 
+          color: #60a5fa !important; 
+        }
+
+       .delete { 
+          color: #f87171; 
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>🚀 Agência</h2>
+
+    <a href="/clientes">Clientes</a>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/financeiro">Financeiro</a>
+</div>
+
+<div class="main">
+    <div class="topbar">
+        <h1>Painel Administrativo</h1>
+    </div>
+
+    <!-- CONTEÚDO DINÂMICO -->
+    <div th:replace="~{__${conteudo}__}"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<form th:action="@{/financeiro}" method="post">
+<div th:fragment="conteudo">
+
+    <div class="card">
+        <h2>🚀 Cadastrar Novo Cliente</h2>
+        <form th:action="@{/clientes}" method="post">
+            <input type="text" name="nome" placeholder="Nome" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="telefone" placeholder="Telefone">
+            <button type="submit">Salvar Cliente</button>
+        </form>
+    </div>
+
+    <div class="card">
+        <h2>👥 Clientes Cadastrados</h2>
+
+        <div th:each="c : ${clientes}" class="cliente">
+            <div class="info">
+                <strong th:text="${c.nome}"></strong>
+                <span class="email" th:text="${c.email}"></span>
+            </div>
+
+            <div class="acoes">
+                <a th:href="@{/clientes/editar/{id}(id=${c.id})}">Editar</a>
+                
+                <a class="delete" th:href="@{/clientes/deletar/{id}(id=${c.id})}">Deletar</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
